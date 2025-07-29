@@ -81,6 +81,11 @@ class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.primary,
   );
+  static TextStyle midum20primary = GoogleFonts.inter(
+    fontSize: 20,
+    fontWeight: FontWeight.w500,
+    color: AppColors.primary,
+  );
   static TextStyle midum16gray = GoogleFonts.inter(
     fontSize: 16,
     fontWeight: FontWeight.w500,

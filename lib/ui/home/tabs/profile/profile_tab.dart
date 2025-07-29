@@ -5,9 +5,11 @@ import 'package:evently/ui/home/tabs/profile/details/theme_bottom_sheet.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_styles.dart';
+import 'package:evently/widget/custom_elevated_bottom.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../providers/language_provider.dart';
+import '../../../../utils/app_routes.dart';
 
 
 class ProfileTab extends StatefulWidget {
@@ -64,7 +66,7 @@ class _ProfileTabState extends State<ProfileTab> {
           vertical: height*0.04
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
               AppLocalizations.of(context)!.profile_language,
@@ -150,34 +152,29 @@ class _ProfileTabState extends State<ProfileTab> {
               ),
             ),
             Spacer(),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
-                  vertical: height*0.02,
-                  horizontal: width *0.04
-                ),
-                backgroundColor: AppColors.red,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16)
-                )
-              ),
+            CustomElevatedBottom(
                 onPressed: (){
-                  //todo : logout
+                  Navigator.pushNamedAndRemoveUntil(
+                    context,
+                    AppRoutes.loginScreen,
+                        (route) => false,
+                  );
                 },
-                child: Row(
-                  children: [
-                    Icon(
-                        Icons.login_outlined,
-                        color: AppColors.white,
-                    ),
-                    SizedBox(width: width*0.02,),
-                    Text(
-                      AppLocalizations.of(context)!.profile_logout,
-                      style: AppStyles.bold20White,
-                    )
-                  ],
-                )
+              backGroundColor: AppColors.red,
+              hasIcon: true,
+              iconName:  Padding(
+                padding:  EdgeInsets.only(left: width *0.04),
+                child: Icon(
+                  Icons.login_outlined,
+                  color: AppColors.white,
+                  size: 35,
+                ),
+              ),
+              mainAxisAlignment: MainAxisAlignment.start,
+                text: AppLocalizations.of(context)!.profile_logout,
+              textStyle: AppStyles.bold20White,
             )
+
           ],
         ),
       ),

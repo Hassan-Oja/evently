@@ -71,5 +71,20 @@
   "category_bookclub": "Book Club",
   "category_exhibition": "Exhibition",
   "category_holiday": "Holiday",
-  "category_eating": "Eating"
+  "category_eating": "Eating",
+
+  "create_event" : "Create Event",
+  "title_new_event" : "Title",
+  "new_event_title" : "Event Title",
+  "new_description" : "Description",
+  "new_event_description" : "Event Description",
+  "event_date" : "Event Date" ,
+  "choose_date" : "Choose Date",
+  "event_time" : "Event Time",
+  "choose_time" : "Choose Time",
+  "event_location" : "Location",
+  "choose_event_location" : "Choose Event Location",
+  "add_event" : "Add Event" ,
+  "tab_on_location_to_select" : "Tab On Location To Select",
+  "update_event" : "Update Event"
 }

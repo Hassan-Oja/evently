@@ -38,13 +38,13 @@ dependencies:
   flutter_native_splash: ^2.4.6
   provider: ^6.1.5
   animated_bottom_navigation_bar: ^1.4.0
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  intl: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

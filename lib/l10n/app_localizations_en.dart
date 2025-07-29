@@ -194,4 +194,46 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get category_eating => 'Eating';
+
+  @override
+  String get create_event => 'Create Event';
+
+  @override
+  String get title_new_event => 'Title';
+
+  @override
+  String get new_event_title => 'Event Title';
+
+  @override
+  String get new_description => 'Description';
+
+  @override
+  String get new_event_description => 'Event Description';
+
+  @override
+  String get event_date => 'Event Date';
+
+  @override
+  String get choose_date => 'Choose Date';
+
+  @override
+  String get event_time => 'Event Time';
+
+  @override
+  String get choose_time => 'Choose Time';
+
+  @override
+  String get event_location => 'Location';
+
+  @override
+  String get choose_event_location => 'Choose Event Location';
+
+  @override
+  String get add_event => 'Add Event';
+
+  @override
+  String get tab_on_location_to_select => 'Tab On Location To Select';
+
+  @override
+  String get update_event => 'Update Event';
 }

@@ -4,12 +4,16 @@ import 'package:flutter/material.dart';
 
 class AppTheme{
   static final ThemeData lightTheme = ThemeData(
+    dividerColor: AppColors.gray,
     primaryColor: AppColors.primary,
     scaffoldBackgroundColor: AppColors.white,
     textTheme: TextTheme(
+      titleLarge: AppStyles.midum16Black,
       headlineLarge: AppStyles.bold20Black,
       headlineMedium: AppStyles.midum16primary,
-      headlineSmall: AppStyles.midum16White
+      headlineSmall: AppStyles.midum16White,
+        titleMedium: AppStyles.midum16gray
+
     ),
     focusColor: AppColors.white,
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -33,6 +37,9 @@ class AppTheme{
         )
       ),
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: AppColors.primary,
+      ),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(24) ,
@@ -44,12 +51,15 @@ class AppTheme{
 
 
   static final ThemeData darkTheme = ThemeData(
-    primaryColor: AppColors.Dark,
+      dividerColor: AppColors.white,
+      primaryColor: AppColors.Dark,
       scaffoldBackgroundColor: AppColors.Dark,
       textTheme: TextTheme(
+          titleLarge: AppStyles.midum16White,
           headlineLarge: AppStyles.bold20White,
           headlineMedium: AppStyles.midum16White,
-          headlineSmall: AppStyles.midum16White
+          headlineSmall: AppStyles.midum16White,
+        titleMedium: AppStyles.midum16White
       ),
       focusColor: AppColors.primary,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -73,6 +83,9 @@ class AppTheme{
         )
     ),
     appBarTheme: AppBarTheme(
+      iconTheme: IconThemeData(
+        color: AppColors.primary,
+      ),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(24) ,

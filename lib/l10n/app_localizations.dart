@@ -463,6 +463,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Eating'**
   String get category_eating;
+
+  /// No description provided for @create_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Event'**
+  String get create_event;
+
+  /// No description provided for @title_new_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title_new_event;
+
+  /// No description provided for @new_event_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Title'**
+  String get new_event_title;
+
+  /// No description provided for @new_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get new_description;
+
+  /// No description provided for @new_event_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Description'**
+  String get new_event_description;
+
+  /// No description provided for @event_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Date'**
+  String get event_date;
+
+  /// No description provided for @choose_date.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Date'**
+  String get choose_date;
+
+  /// No description provided for @event_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Event Time'**
+  String get event_time;
+
+  /// No description provided for @choose_time.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Time'**
+  String get choose_time;
+
+  /// No description provided for @event_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get event_location;
+
+  /// No description provided for @choose_event_location.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Event Location'**
+  String get choose_event_location;
+
+  /// No description provided for @add_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Event'**
+  String get add_event;
+
+  /// No description provided for @tab_on_location_to_select.
+  ///
+  /// In en, this message translates to:
+  /// **'Tab On Location To Select'**
+  String get tab_on_location_to_select;
+
+  /// No description provided for @update_event.
+  ///
+  /// In en, this message translates to:
+  /// **'Update Event'**
+  String get update_event;
 }
 
 class _AppLocalizationsDelegate

@@ -6,8 +6,10 @@ import 'package:evently/utils/app_styles.dart';
 import 'package:evently/widget/custom_elevated_bottom.dart';
 import 'package:evently/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../../providers/theme_provider.dart';
 
 
 class RegisterScreen extends StatefulWidget {
@@ -33,14 +35,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+    var themeProvider = Provider.of<ThemeProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
-       backgroundColor: AppColors.white,
+       backgroundColor: Theme.of(context).primaryColor,
         title: Text(
           AppLocalizations.of(context)!.register_Title,
-          style: AppStyles.bold16Black,
+          style: themeProvider.appTheme == ThemeMode.dark?
+          AppStyles.bold16Primary : AppStyles.bold16Black,
         ),
         centerTitle: true,
+        iconTheme: IconThemeData(
+          color: themeProvider.appTheme == ThemeMode.dark?
+          AppColors.primary : AppColors.black
+        ),
       ),
       body: Padding(
         padding:  EdgeInsets.symmetric(
@@ -141,7 +150,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     children: [
                       Text(
                         '${AppLocalizations.of(context)!.register_have}?',
-                        style: AppStyles.midum16Black,
+                        style: themeProvider.appTheme == ThemeMode.dark?
+                        AppStyles.midum16White : AppStyles.midum16Black,
                       ) ,
                       TextButton(
                         onPressed: (){
@@ -173,7 +183,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   void register() {
     if(formKey.currentState?.validate()==true){
-      Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        AppRoutes.homeRouteName,
+            (route) => false,
+      );
     }
   }
 }

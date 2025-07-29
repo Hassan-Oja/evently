@@ -4,6 +4,7 @@ import 'package:evently/ui/home/tabs/Home/home_tab.dart';
 import 'package:evently/ui/home/tabs/Map/map_tab.dart';
 import 'package:evently/ui/home/tabs/profile/profile_tab.dart';
 import 'package:evently/utils/app_colors.dart';
+import 'package:evently/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../utils/app_assets.dart';
@@ -66,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
           onPressed: (){
             //todo: navigate to create event
+            Navigator.of(context).pushNamed(AppRoutes.addEventScreen);
           },
         child: Icon(Icons.add , color: AppColors.white , size: 40,),
       ),

@@ -4,7 +4,20 @@ import 'package:flutter/material.dart';
 class CategoryTabItem extends StatelessWidget {
   bool isSelected ;
   String eventName;
-  CategoryTabItem({super.key , required this.isSelected , required this.eventName});
+  Color selectedBgColor ;
+  TextStyle selectedTextStyle ;
+  TextStyle unSelectedTextStyle ;
+  Color? borderColor;
+
+  CategoryTabItem({
+    super.key ,
+    required this.isSelected ,
+    required this.eventName,
+    required this.selectedBgColor,
+    required this.selectedTextStyle,
+    required this.unSelectedTextStyle,
+    this.borderColor
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,15 +34,14 @@ class CategoryTabItem extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(46),
         border: Border.all(
-          color: Theme.of(context).focusColor,
+          color: borderColor ?? Theme.of(context).focusColor,
           width: 2
         ),
-          color: isSelected ? Theme.of(context).focusColor : AppColors.transparent
+          color: isSelected ? selectedBgColor : AppColors.transparent
       ),
       child: Text(
         eventName ,
-        style: isSelected ? Theme.of(context).textTheme.headlineMedium :
-        Theme.of(context).textTheme.headlineSmall
+        style: isSelected ? selectedTextStyle : unSelectedTextStyle
       ),
     );
   }

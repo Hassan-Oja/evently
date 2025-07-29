@@ -194,4 +194,46 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get category_eating => 'تناول الطعام';
+
+  @override
+  String get create_event => 'إنشاء حدث';
+
+  @override
+  String get title_new_event => 'العنوان';
+
+  @override
+  String get new_event_title => 'عنوان الحدث';
+
+  @override
+  String get new_description => 'الوصف';
+
+  @override
+  String get new_event_description => 'وصف الحدث';
+
+  @override
+  String get event_date => 'تاريخ الحدث';
+
+  @override
+  String get choose_date => 'اختر التاريخ';
+
+  @override
+  String get event_time => 'وقت الحدث';
+
+  @override
+  String get choose_time => 'اختر الوقت';
+
+  @override
+  String get event_location => 'الموقع';
+
+  @override
+  String get choose_event_location => 'اختر مكان الحدث';
+
+  @override
+  String get add_event => 'إضافة الحدث';
+
+  @override
+  String get tab_on_location_to_select => 'انقر على الموقع لتحديده';
+
+  @override
+  String get update_event => 'تحديث الحدث';
 }

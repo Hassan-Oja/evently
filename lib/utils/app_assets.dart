@@ -4,7 +4,7 @@ class AppAssets{
   static const String profileImage = 'assets/images/profileImage.png';
   static const String birthdayImage = 'assets/images/birthdayImage.png';
   static const String bookClubImage = 'assets/images/bookClubImage.png';
-  static const String EatingImage = 'assets/images/EatingImage.png';
+  static const String eatingImage = 'assets/images/EatingImage.png';
   static const String exhibitionImage = 'assets/images/exhibitionImage.png';
   static const String gamingImage = 'assets/images/gamingImage.png';
   static const String holidayImage = 'assets/images/holidayImage.png';
@@ -41,4 +41,8 @@ class AppAssets{
   static const String themeIcon = 'assets/images/themeIcon.png' ;
 
   static const String searchIcon = 'assets/images/iconSearch.png';
+  static const String calenderIcon = 'assets/images/calendarIcon.png';
+  static const String clockIcon = 'assets/images/clockIcon.png';
+  static const String locationIcon = 'assets/images/locationIcon.png';
+  static const String newEventTitleIcon = 'assets/images/newEventTitleIcon.png';
 }
