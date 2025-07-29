@@ -1,10 +1,14 @@
 import 'package:evently/l10n/app_localizations.dart';
+import 'package:evently/model/event.dart';
 import 'package:evently/ui/home/tabs/Home/Add%20Event/widget/date_or_time_widget.dart';
 import 'package:evently/ui/home/tabs/Home/widget/category_tab_item.dart';
 import 'package:evently/ui/home/tabs/Home/widget/event_item.dart';
+import 'package:evently/ui/home_screen.dart';
+import 'package:evently/ui/home_screen1.dart';
 import 'package:evently/utils/app_assets.dart';
 import 'package:evently/utils/app_colors.dart';
 import 'package:evently/utils/app_styles.dart';
+import 'package:evently/utils/firebase_utils.dart';
 import 'package:evently/widget/custom_elevated_bottom.dart';
 import 'package:evently/widget/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +33,7 @@ class _AddEventState extends State<AddEvent> {
   DateTime? selectedDate;
   String formatedDate = '';
   String formatedTime = '';
-  TimeOfDay? selectedTime ;
+  TimeOfDay? selectedTime;
 
   @override
   Widget build(BuildContext context) {
@@ -170,14 +174,15 @@ class _AddEventState extends State<AddEvent> {
                       eventDateOrTime: AppLocalizations.of(context)!.event_date,
                       chooseDateOrTime: selectedDate == null
                           ? AppLocalizations.of(context)!.choose_date
-                          : formatedDate ,
+                          : formatedDate,
                       onChooseDateOrTime: chooseDate,
                     ),
                     DateOrTimeWidget(
                       iconName: AppAssets.clockIcon,
                       eventDateOrTime: AppLocalizations.of(context)!.event_time,
-                      chooseDateOrTime: selectedTime == null ?
-                      AppLocalizations.of(context,)!.choose_time : formatedTime,
+                      chooseDateOrTime: selectedTime == null
+                          ? AppLocalizations.of(context)!.choose_time
+                          : formatedTime,
                       onChooseDateOrTime: chooseTime,
                     ),
                     SizedBox(height: height * 0.01),
@@ -225,6 +230,9 @@ class _AddEventState extends State<AddEvent> {
                     CustomElevatedBottom(
                       onPressed: () {
                         addEvent();
+                        setState(() {
+                          showAlertDialog(context);
+                        });
                       },
                       text: AppLocalizations.of(context)!.add_event,
                     ),
@@ -247,7 +255,7 @@ class _AddEventState extends State<AddEvent> {
       lastDate: DateTime.now().add(Duration(days: 365)),
     );
     selectedDate = chooseDate;
-    if(selectedDate != null){
+    if (selectedDate != null) {
       formatedDate = DateFormat('dd/MM/yyyy').format(selectedDate!);
       setState(() {});
     }
@@ -258,18 +266,48 @@ class _AddEventState extends State<AddEvent> {
       context: context,
       initialTime: TimeOfDay.now(),
     );
-    selectedTime = chooseDate ;
-    if(selectedTime != null){
+    selectedTime = chooseDate;
+    if (selectedTime != null) {
       formatedTime = selectedTime!.format(context);
-      setState(() {
-
-      });
+      setState(() {});
     }
   }
 
   void addEvent() {
     if (formKey.currentState?.validate() == true) {
       //todo : add event
+      Event event = Event(
+        eventImage: selectedIndex,
+        eventName: selectedIndex,
+        eventTitle: titleController.text,
+        eventDescription: descriptionController.text,
+        eventDateTime: selectedDate!,
+        eventTime: formatedTime,
+      );
+      FirebaseUtils.addEventToFireStore(
+        event,
+      ).timeout(Duration(milliseconds: 500));
     }
+  }
+
+  showAlertDialog(BuildContext context) {
+    Widget okButton = TextButton(
+      child: Text("OK"),
+      onPressed: () {
+        Navigator.pop(context);
+        Navigator.pop(context);
+      },
+    );
+    AlertDialog alert = AlertDialog(
+      title: Text("My title"),
+      content: Text("This is my message."),
+      actions: [okButton],
+    );
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
   }
 }
